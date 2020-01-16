@@ -56,7 +56,7 @@ namespace MyGameAsteroids
             _objs = new BaseObject[80];
             for (int i = 0; i < _objs.Length / 8; i++)
             {
-                _objs[i] = new BaseObject(new Point(r.Next(100, 600), (i + 1) * 2), new Point(-i, i), new Size(20, 20), lsPens[r.Next(0,5)]);
+                _objs[i] = new BaseObject(new Point(r.Next(100, 600), 2), new Point(-i, i), new Size(20, 20), lsPens[r.Next(0,5)]);
             }
             for(int i = _objs.Length / 8; i < _objs.Length; i++)
             {
