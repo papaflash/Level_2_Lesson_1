@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using MyGameAsteroids.Properties;
 
 //Добавил свой класс корабль
 
@@ -14,9 +15,11 @@ namespace MyGameAsteroids
         Point _pos;
         Point _dir;
         Size _size;
-        Image _image = Image.FromFile(@"D:\C#\MyGameAsteroids\Properties\cb.png");
+        Image _image;
+
         public SpaceShip(Point pos, Point dir, Size size)
         {
+            _image = Resources.cb;
             _pos = pos;
             _dir = dir;
             _size = size;

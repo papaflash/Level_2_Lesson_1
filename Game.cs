@@ -54,11 +54,11 @@ namespace MyGameAsteroids
         {
             
             _objs = new BaseObject[80];
-            for (int i = 0; i < _objs.Length / 8; i++)
+            for (int i = 0; i < _objs.Length/8; i++)
             {
-                _objs[i] = new BaseObject(new Point(r.Next(100, 600), 2), new Point(-i, i), new Size(20, 20), lsPens[r.Next(0,5)]);
+                _objs[i] = new BaseObject(new Point(r.Next(100, 600), 2), new Point(1 + i, 1 + i), new Size(20, 20), lsPens[r.Next(0,5)]);
             }
-            for(int i = _objs.Length / 8; i < _objs.Length; i++)
+            for (int i = _objs.Length / 8; i < _objs.Length; i++)
             {
                 _objs[i] = new Star(new Point(r.Next(1, 1280), r.Next(1, 740)), new Point(-i, 0), new Size(2, 2), lsPens[r.Next(0, 4)]);
             }

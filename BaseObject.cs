@@ -4,20 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using MyGameAsteroids.Properties;
 
 namespace MyGameAsteroids
 {
     class BaseObject
     {
-        
-        Image image = Image.FromFile(@"D:\C#\MyGameAsteroids\Properties\asteroid.png");
         protected Point Pos;
         protected Point Dir;
         protected Size Size;
         protected Pen MyPen;
+        readonly Image _image;
 
         public BaseObject(Point pos, Point dir, Size size, Pen myPen)
         {
+            _image = Resources.asteroid;
             Pos = pos;
             Dir = dir;
             Size = size;
@@ -26,7 +27,7 @@ namespace MyGameAsteroids
         public virtual void Draw()
         {
             //Заменить кружочки картинкой используя DrawImage
-            Game.Buffer.Graphics.DrawImage(image, Pos.X, Pos.Y, Size.Width, Size.Height);
+            Game.Buffer.Graphics.DrawImage(_image, Pos.X, Pos.Y, Size.Width, Size.Height);
         }
         public virtual void Update()
         {

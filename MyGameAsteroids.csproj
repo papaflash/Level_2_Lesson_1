@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MyGameAsteroids</RootNamespace>
     <AssemblyName>MyGameAsteroids</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -77,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\cb390effd6eadbc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\cb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\asteroid.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
