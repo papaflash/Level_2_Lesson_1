@@ -79,5 +79,37 @@ namespace MyGameAsteroids.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FirstAidKit {
+            get {
+                object obj = ResourceManager.GetObject("FirstAidKit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 27/01/20 9:56:25 Нажата клавиша вверх
+        ///27/01/20 9:56:27 Нажата клавиша вниз
+        ///27/01/20 9:56:27 Нажата клавиша вниз
+        ///27/01/20 9:56:28 Нажата клавиша вверх
+        ///27/01/20 9:56:28 Нажата клавиша вверх
+        ///27/01/20 9:56:29 Нажата клавиша вверх
+        ///27/01/20 9:56:29 Нажата клавиша вверх
+        ///27/01/20 9:56:29 Нажата клавиша вверх
+        ///27/01/20 9:56:29 Нажата клавиша вверх
+        ///27/01/20 9:56:30 Нажата клавиша вниз
+        ///27/01/20 9:56:30 Нажата клавиша вниз
+        ///27/01/20 9:56:31 Нажата клавиша CTRL
+        ///27/01/20 9:56:35 Нажата клавиша вверх
+        ///27/01/20 9 [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string log {
+            get {
+                return ResourceManager.GetString("log", resourceCulture);
+            }
+        }
     }
 }

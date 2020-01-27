@@ -10,29 +10,49 @@ using MyGameAsteroids.Properties;
 
 namespace MyGameAsteroids
 {
-    class SpaceShip
+    class SpaceShip: BaseObject
     {
-        Point _pos;
-        Point _dir;
-        Size _size;
-        Image _image;
+        public static event Message MessageDie;
+        public static event MessageJournal Message;
+        private int _energy = 100;
+        public int Eneregy {
+            set { _energy = value; } get => _energy; }
+        private Image _image = Resources.cb;
+        public SpaceShip(Point pos, Point dir, Size size, Pen pen) : base(pos, dir, size, pen)
+        {
 
-        public SpaceShip(Point pos, Point dir, Size size)
-        {
-            _image = Resources.cb;
-            _pos = pos;
-            _dir = dir;
-            _size = size;
         }
-        public void Draw()
+        public override void Draw()
         {
-            Game.Buffer.Graphics.DrawImage(_image, _pos.X, _pos.Y, _size.Width, _size.Height);
+            Game.Buffer.Graphics.DrawImage(_image, Pos.X, Pos.Y, Size.Width, Size.Height);
         }
-        public void Update()
+
+        public override void Update()
         {
-            _pos.Y += -_dir.Y;
-            if (_pos.Y >= 400) _dir.Y = -_dir.Y;
-            if (_pos.Y <= 300) _dir.Y = -_dir.Y;
+        }
+        public void Up()
+        {
+            if (Pos.Y > 0) Pos.Y -= Dir.Y;
+            Message?.Invoke("Нажата клавиша вверх");
+        }
+        public void Down()
+        {
+            if (Pos.Y < Game.Height) Pos.Y += Dir.Y;
+            Message?.Invoke("Нажата клавиша вниз");
+        }
+        public void EnergyLow(int n)
+        {
+            _energy -= n;
+            Message?.Invoke($"Корабль получает урон: {n} здоровье: {_energy}");
+        }
+        public void EnergyUp(int n)
+        {
+            _energy += n;
+            Message?.Invoke($"Корабль получает получает атечку: {n} здоровье: {_energy}");
+        }
+        public void Die() 
+        {
+            MessageDie?.Invoke();
         }
     }
 }

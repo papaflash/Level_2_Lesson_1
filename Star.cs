@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+
 namespace MyGameAsteroids
 {
-    class Star : BaseObject
+    class Star: BaseObject
     {
         public Star(Point pos, Point dir, Size size, Pen pen) : base(pos, dir, size, pen)
         {

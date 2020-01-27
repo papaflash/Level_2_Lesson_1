@@ -4,39 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using MyGameAsteroids.Properties;
 
 namespace MyGameAsteroids
 {
-    class BaseObject
+    public delegate void Message();
+    public delegate void MessageJournal(string s); //делегат для ведения журнала
+    abstract class BaseObject: ICollision
     {
         protected Point Pos;
         protected Point Dir;
         protected Size Size;
         protected Pen MyPen;
-        readonly Image _image;
+        
 
-        public BaseObject(Point pos, Point dir, Size size, Pen myPen)
+        protected BaseObject(Point pos, Point dir, Size size, Pen myPen)
         {
-            _image = Resources.asteroid;
+             
             Pos = pos;
             Dir = dir;
             Size = size;
             MyPen = myPen;
         }
-        public virtual void Draw()
-        {
-            //Заменить кружочки картинкой используя DrawImage
-            Game.Buffer.Graphics.DrawImage(_image, Pos.X, Pos.Y, Size.Width, Size.Height);
-        }
-        public virtual void Update()
-        {
-            Pos.X += Dir.X;
-            Pos.Y += Dir.Y;
-            if (Pos.X < 0) Dir.X = -Dir.X;
-            if (Pos.X > Game.Width) Dir.X = -Dir.X;
-            if (Pos.Y < 0) Dir.Y = -Dir.Y;
-            if (Pos.Y > Game.Height) Dir.Y = -Dir.Y;  
-        }
+
+        public Rectangle Rect => new Rectangle(Pos, Size);
+
+        public bool Collision(ICollision obj) => obj.Rect.IntersectsWith(this.Rect);
+
+        public abstract void Draw();
+        /// <summary>
+        /// Уровень_2.Урок_2.Задание_2: Переделать виртуальный метод Update в BaseObject в абстрактный и реализовать его в наследниках.
+        /// </summary>
+        public abstract void Update();
     }
 }
